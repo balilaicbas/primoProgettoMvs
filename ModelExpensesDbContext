@@ -1,0 +1,28 @@
+using Microsoft.EntityFrameworkCore;
+
+namespace ProgettoYoutube.Models
+{
+    /*
+     * La classe ExpensesDbContext eredita da una classe base chiamata DbContext, che fa parte di Entity Framework Core.
+DbContext è la classe principale di EF Core che rappresenta una sessione con il database.
+Fornisce metodi e proprietà per:
+Effettuare operazioni CRUD sul database.
+Configurare entità e relazioni tra di esse.
+Gestire transazioni e connessioni.
+Scopo della classe ExpensesDbContext:
+
+Questa classe sarà utilizzata per definire il modello di dati della tua applicazione e come viene mappato al database.
+Sarà il punto centrale per accedere alle tabelle del database (che in EF Core sono rappresentate da proprietà di tipo DbSet).
+    */
+    public class ExpensesDbContext : DbContext
+    {
+        // dbSet serve per accedere ai dati di un db con Entity Framework
+        public DbSet<Expenses> Expenses { get; set; }
+
+        public ExpensesDbContext(DbContextOptions<ExpensesDbContext> options) 
+            : base(options)
+        {
+            
+        }
+    }
+}
